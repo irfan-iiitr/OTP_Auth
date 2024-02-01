@@ -66,11 +66,12 @@ const OtpInput = ({length,onOTPVerify}) => {
 
 
   return (
-    <div>
+    <div id='otp-field'>
         {
             otp.map((data,index)=>(
                 <input
                 className="otp-field"
+                
                 type="text"
                 name="otp"
                 maxLength="1"

@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import OtpInput from './OtpInput'
 import { auth } from './firebase';
 import { RecaptchaVerifier ,signInWithPhoneNumber} from "firebase/auth";
 import toast, { Toaster } from 'react-hot-toast';
+import "driver.js/dist/driver.css";
+
+import { driver } from 'driver.js';
 
 import { redirect } from "react-router-dom";
 
@@ -12,6 +15,45 @@ const OtpLogin = () => {
     const [showOtp,setShowOtp] = useState(false)
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState(null);
+
+    const driverObj = driver({
+      //showProgress: true,  // Because everyone loves progress bars!
+  
+      steps: [
+        {
+          element: '#input-phone-no',
+          popover: {
+            title: 'Phone Number!',
+            description: 'Enter Your Phone Number . You will recieve an otp on it',
+            position: 'bottom', // This will position the popover at the bottom of the element
+          }
+        },
+        {
+          element:"#send-otp-btn",
+          popover: {
+            title: 'Send OTP Button!',
+            description: 'Click on this button to send otp to your phone number',
+            position: 'bottom', // This will position the popover at the bottom of the element
+          }
+        },
+        // {
+        //     element:'#otp-field',
+        //     popover: {
+        //       title: 'OTP Field!',
+        //       description: 'Enter the otp recieved on your phone number',
+        //       position: 'bottom', // This will pos  ition the popover at the bottom of the element
+        //     }
+        // }
+        // More magical steps...
+      ]
+    });
+
+    // function startTheMagicShow() {
+     
+    // }
+    useEffect(() => {
+      driverObj.drive();
+    },[]);
 
 
     const handlePhoneNumber =(e)=>{
@@ -102,14 +144,15 @@ const OtpLogin = () => {
   return (
     <div >
        <Toaster toastOptions={{ duration: 4000 }} />
+       {/* <button onClick={startTheMagicShow}>Start Magical Tour</button> */}
       {!user && <div id="recaptcha-container"></div>}
       
     {
         !showOtp? <div className='input_field'>
           <form onSubmit={handlePhoneSubmit}>
-        <input className='phone-input' type="text" placeholder="Enter phone number" value={phoneNumber} onChange={handlePhoneNumber}></input>
+        <input  id="input-phone-no" className='phone-input' type="text" placeholder="Enter phone number" value={phoneNumber} onChange={handlePhoneNumber}></input>
         
-        <button      onClick={onSignup} className='send-otp-btn' type="submit">Send OTP</button>
+        <button  id="send-otp-btn"     onClick={onSignup} className='send-otp-btn' type="submit">Send OTP</button>
     </form></div>:(
     <div>
          {
