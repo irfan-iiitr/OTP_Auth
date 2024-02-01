@@ -25,10 +25,11 @@ Contributions are welcome. Please open an issue or submit a pull request.
 ## Visuals
 
 
-![otp1](https://github.com/irfan-iiitr/OTP_Auth/assets/123577873/d2a24492-ac71-42e1-bd5b-
+![otp1](https://github.com/irfan-iiitr/OTP_Auth/assets/123577873/d2a24492-ac71-42e1-bd5b-f14ed85f452c)
+
 ![otp2](https://github.com/irfan-iiitr/OTP_Auth/assets/123577873/376d0045-8efe-40f8-9f8c-66221179d07c)
 
-f14ed85f452c)![otp3](https://github.com/irfan-iiitr/OTP_Auth/assets/123577873/d507ba1a-7ff7-4c86-8472-6bfa8a1c2379)
+![otp3](https://github.com/irfan-iiitr/OTP_Auth/assets/123577873/d507ba1a-7ff7-4c86-8472-6bfa8a1c2379)
 
 
 ![otp4](https://github.com/irfan-iiitr/OTP_Auth/assets/123577873/2f32a74d-c70c-40b2-9146-1ca2a26f56e5)
